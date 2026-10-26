@@ -450,10 +450,7 @@ def async_update_map_cameras(
     low_resolution: bool,
     square: bool,
 ) -> None:
-    # map_list is [] rather than None while the list is unknown (e.g. during a cloud outage). An empty list
-    # removed the saved map cameras from the registry and added them again later, enabled, which undid a
-    # user's choice to disable them. Leave them alone until the list is known again.
-    if not coordinator.device or not coordinator.device.status.map_list or not coordinator.device.cloud_connected:
+    if coordinator.device and coordinator.device.status.map_list is None:
         return
 
     if coordinator.device and coordinator.device.status.map_list:
