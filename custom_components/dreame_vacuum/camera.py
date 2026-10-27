@@ -470,7 +470,6 @@ def async_update_map_cameras(
                     key="saved_map",
                     entity_category=EntityCategory.CONFIG,
                     icon="mdi:map-search",
-                    entity_registry_enabled_default=False,
                 ),
                 color_scheme,
                 icon_set,
